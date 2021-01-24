@@ -43,7 +43,7 @@ address_generator
 #(.ad_w(ad_width)) address_gen(.clk(clk),.reset(reset),.preset(preset),.en(en),.up_down(up_down),.carry(carry),.address(address));
 
 Mem_ex #
-(.d_width(data_width),.a_height(ad_width)) memory1
+(.d_width(data_width),.a_heigth(ad_width)) memory1
 (.clk(clk),.din_out(data_inout),.wr(write),.read(read),.addr(address));
 
 endmodule

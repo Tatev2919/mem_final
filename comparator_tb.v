@@ -23,7 +23,7 @@ module comparator_tb;
 		#25;
 		data_gen = 8'b0;
 		data_gen = 8'b0;
-		#200;
+		#20;
 		$finish;
 	end
 endmodule
