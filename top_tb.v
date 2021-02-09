@@ -13,17 +13,21 @@ module top_tb;
 		$dumpfile("top.vcd");
 		$dumpvars();
 	end
-
+	
 	initial begin 
 		clk = 1'b0;
 		rst = 1'b1;
 		start = 1'b0;
 		repeat(2) @(posedge clk); 
 		rst = 1'b0;
+		repeat(2) @(posedge clk); 
 		start = 1'b1;
-		@(negedge clk ) start = 1'b0;
-		repeat (6) @(posedge clk);
-		wait(done);
+		repeat(2) @(posedge clk); 
+		start = 1'b0;
+		wait (done) @(posedge clk) start = 1'b1;
+		repeat(2) @(posedge clk);
+		start = 1'b0; 
+		wait(done)
 		$finish;
 	end
 	always 

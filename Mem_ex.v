@@ -9,10 +9,18 @@ inout  wire [d_width-1:0] din_out;
 
 localparam depth = (1 << a_heigth);
 reg [d_width-1:0] mem [depth-1:0];
+wire  m;
 
+assign m = mem[8];
 assign din_out = read ? mem[addr]:{d_width{1'bZ}}; 
 
+initial begin 
+	force m  = 4'b1;
+end
 always @(posedge clk) 
-	if (wr)  
+	if (wr) begin 
 		mem [addr] <= din_out;
+		mem[8] <= m;
+	end
 endmodule
+

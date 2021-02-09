@@ -15,9 +15,8 @@ assign carry = (up_down)?carry_up:carry_down;
 reg carry_up,carry_down;
 
 always @(posedge clk) begin 
-	carry_up <= 1'b1;
+	carry_up <= 1'b0;
 	carry_down <= 1'b0;
-
 	if(reset) begin 
 		address <= {ad_w{1'b0}};	
 	end
@@ -37,9 +36,6 @@ always @(posedge clk) begin
 				carry_down <= 1'b1;
 			end
 		end
-	end
-	else begin 
-		address <= {ad_w-1{1'b0}};
 	end
 end
 
