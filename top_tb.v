@@ -18,15 +18,12 @@ module top_tb;
 		clk = 1'b0;
 		rst = 1'b1;
 		start = 1'b0;
-		#25;
+		repeat(2) @(posedge clk); 
 		rst = 1'b0;
-		@(negedge clk) start = 1'b1;
-		start = 1'b0;
-		wait(done) start = 1'b1;
+		start = 1'b1;
 		@(negedge clk ) start = 1'b0;
-		repeat (2) @(posedge clk);
+		repeat (6) @(posedge clk);
 		wait(done);
-		
 		$finish;
 	end
 	always 
