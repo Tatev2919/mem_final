@@ -7,6 +7,6 @@ output [N-1:0] data_gen;
 inout [N-1:0] data_inout;
 
 assign data_inout = wr ?{N{data}}:{N{1'bZ}};
-assign data_gen = data_inout; 
+assign data_gen = {N{data}}; 
 
 endmodule
